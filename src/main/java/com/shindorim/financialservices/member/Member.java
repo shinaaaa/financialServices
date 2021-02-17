@@ -1,11 +1,19 @@
 package com.shindorim.financialservices.member;
 
 public class Member {
-    private Long memberNum;
-    private String id;
-    private String name;
-    private String phoneNum;
-    private String password;
+    private Long memberNum; // 고객 번호
+    private String id;  // 고객 아이디
+    private String name;    // 고객 이름
+    private String phoneNum;    // 고객 전화번호
+    private String password;    // 고객 비밀번호
+
+    public Member(Long memberNum, String id, String name, String phoneNum, String password) {
+        this.memberNum = memberNum;
+        this.id = id;
+        this.name = name;
+        this.phoneNum = phoneNum;
+        this.password = password;
+    }
 
     public Long getMemberNum() {
         return memberNum;
