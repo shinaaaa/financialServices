@@ -45,11 +45,16 @@ public class AccountServiceImpl implements AccountService {
      */
     @Override
     public Optional<Account> findByMemberNum(Long memberNum) {
-        return Optional.empty();
+        return accountRepository.findByMemberNum(memberNum);
     }
-    
+
+    /**
+     * 모든 계좌 조회
+     *
+     * @return 계좌 목록
+     */
     @Override
     public List<Account> findAllAccount() {
-        return null;
+        return accountRepository.findAllAccount();
     }
 }

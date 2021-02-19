@@ -16,6 +16,10 @@ public class MemoryAccountRepository implements AccountRepository {
 
     @Override
     public void resetPassWord(Long memberNum, String accountNum) {
+        Account oldAccount = store.get(memberNum);
+        Account newAccount = store.get(memberNum);
+        newAccount.setAccountPw(0);
+        store.replace(memberNum, oldAccount, newAccount);
     }
 
     @Override
