@@ -8,6 +8,10 @@ import com.shindorim.financialservices.member.MemberRepository;
 import com.shindorim.financialservices.member.MemberService;
 import com.shindorim.financialservices.member.MemberServiceImpl;
 import com.shindorim.financialservices.member.MemoryMemberRepository;
+import com.shindorim.financialservices.task.MemoryTaskRepository;
+import com.shindorim.financialservices.task.TaskRepository;
+import com.shindorim.financialservices.task.TaskService;
+import com.shindorim.financialservices.task.TaskServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -35,5 +39,17 @@ public class AppConfig {
     public AccountRepository accountRepository() {
         System.out.println("AppConfig.accountRepository");
         return new MemoryAccountRepository();
+    }
+
+    @Bean
+    public TaskService taskService() {
+        System.out.println("AppConfig.taskService");
+        return new TaskServiceImpl(taskRepository());
+    }
+
+    @Bean
+    public TaskRepository taskRepository() {
+        System.out.println("AppConfig.taskRepository");
+        return new MemoryTaskRepository();
     }
 }
