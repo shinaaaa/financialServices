@@ -2,11 +2,13 @@ package com.shindorim.financialservices.account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
+@Transactional
 public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
@@ -22,8 +24,8 @@ public class AccountServiceImpl implements AccountService {
      * @param account 계좌 정보
      */
     @Override
-    public void open(Account account) {
-        accountRepository.open(account);
+    public Account open(Account account) {
+        return accountRepository.open(account);
     }
 
     /**
@@ -33,8 +35,8 @@ public class AccountServiceImpl implements AccountService {
      * @param accountNum 고객 계좌 번호
      */
     @Override
-    public void resetPassWord(Long memberNum, String accountNum) {
-        accountRepository.resetPassWord(memberNum, accountNum);
+    public Account resetPassWord(Long memberNum, String accountNum) {
+        return accountRepository.resetPassWord(memberNum, accountNum);
     }
 
     /**

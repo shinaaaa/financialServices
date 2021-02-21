@@ -59,10 +59,10 @@ public class Member {
     @Override
     public String toString() {
         return "Member{" +
-                "memberNum=" + member_num +
+                "member_num=" + member_num +
                 ", id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", phoneNum='" + phone_num + '\'' +
+                ", phone_num='" + phone_num + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

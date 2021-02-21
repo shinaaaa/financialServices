@@ -18,7 +18,7 @@ public class JpaMemberRepository implements MemberRepository {
 
     @Override
     public Member save(Member member) {
-        entityManager.merge(member);
+        entityManager.persist(member);
         return member;
     }
 

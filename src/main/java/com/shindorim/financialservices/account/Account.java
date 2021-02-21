@@ -8,34 +8,34 @@ import javax.persistence.Id;
 @Entity
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private Long memberNum; // 고객 번호
-    private String accountNum;  // 고객 계좌 번호
-    private int accountPw;  // 고객 계좌 비밀번호
+    private Long member_num; // 고객 번호
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String account_num;  // 고객 계좌 번호
+    private int account_pw;  // 고객 계좌 비밀번호
     private boolean available;  // 고객 계좌 사용 가능 여부
 
-    public Long getMemberNum() {
-        return memberNum;
+    public Long getMember_num() {
+        return member_num;
     }
 
-    public void setMemberNum(Long memberNum) {
-        this.memberNum = memberNum;
+    public void setMember_num(Long memberNum) {
+        this.member_num = memberNum;
     }
 
-    public String getAccountNum() {
-        return accountNum;
+    public String getAccount_num() {
+        return account_num;
     }
 
-    public void setAccountNum(String accountNum) {
-        this.accountNum = accountNum;
+    public void setAccount_num(String accountNum) {
+        this.account_num = accountNum;
     }
 
-    public int getAccountPw() {
-        return accountPw;
+    public int getAccount_pw() {
+        return account_pw;
     }
 
-    public void setAccountPw(int accountPw) {
-        this.accountPw = accountPw;
+    public void setAccount_pw(int accountPw) {
+        this.account_pw = accountPw;
     }
 
     public boolean isAvailable() {
@@ -49,9 +49,9 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "memberNum='" + memberNum + '\'' +
-                ", accountNum='" + accountNum + '\'' +
-                ", accountPw='" + accountPw + '\'' +
+                "member_num='" + member_num + '\'' +
+                ", account_num='" + account_num + '\'' +
+                ", account_pw='" + account_pw + '\'' +
                 ", available=" + available +
                 '}';
     }

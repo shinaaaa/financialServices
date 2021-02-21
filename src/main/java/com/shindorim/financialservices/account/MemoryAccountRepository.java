@@ -10,16 +10,18 @@ public class MemoryAccountRepository implements AccountRepository {
     private static final Map<Long, Account> store = new ConcurrentHashMap<>();
 
     @Override
-    public void open(Account account) {
-        store.put(account.getMemberNum(), account);
+    public Account open(Account account) {
+        store.put(account.getMember_num(), account);
+        return account;
     }
 
     @Override
-    public void resetPassWord(Long memberNum, String accountNum) {
+    public Account resetPassWord(Long memberNum, String accountNum) {
         Account oldAccount = store.get(memberNum);
         Account newAccount = store.get(memberNum);
-        newAccount.setAccountPw(0);
+        newAccount.setAccount_pw(0);
         store.replace(memberNum, oldAccount, newAccount);
+        return newAccount;
     }
 
     @Override

@@ -17,15 +17,13 @@ public class AccountController {
     }
 
     @PostMapping("/account/open")
-    public String open(Account account) {
-        accountService.open(account);
-        return "200";
+    public Account open(Account account) {
+        return accountService.open(account);
     }
 
     @PostMapping("/account/rest")
-    public String rest(Long memberNum, String accountNum) {
-        accountService.resetPassWord(memberNum, accountNum);
-        return "200";
+    public Account rest(Long memberNum, String accountNum) {
+        return accountService.resetPassWord(memberNum, accountNum);
     }
 
     @PostMapping("/account/findAccount")

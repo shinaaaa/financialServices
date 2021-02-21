@@ -1,9 +1,6 @@
 package com.shindorim.financialservices;
 
-import com.shindorim.financialservices.account.AccountRepository;
-import com.shindorim.financialservices.account.AccountService;
-import com.shindorim.financialservices.account.AccountServiceImpl;
-import com.shindorim.financialservices.account.MemoryAccountRepository;
+import com.shindorim.financialservices.account.*;
 import com.shindorim.financialservices.member.JpaMemberRepository;
 import com.shindorim.financialservices.member.MemberRepository;
 import com.shindorim.financialservices.member.MemberService;
@@ -50,7 +47,7 @@ public class AppConfig {
     @Bean
     public AccountRepository accountRepository() {
         System.out.println("AppConfig.accountRepository");
-        return new MemoryAccountRepository();
+        return new JpaAccountRepository(entityManager);
     }
 
     @Bean
