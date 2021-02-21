@@ -1,6 +1,14 @@
 package com.shindorim.financialservices.account;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Account {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long memberNum; // 고객 번호
     private String accountNum;  // 고객 계좌 번호
     private int accountPw;  // 고객 계좌 비밀번호

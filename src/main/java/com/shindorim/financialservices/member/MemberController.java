@@ -16,16 +16,13 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @PostMapping("/join")
-    public String join(Member member) {
-        System.out.println("member = " + member.toString());
-        memberService.save(member);
-        return "200";
+    @PostMapping("/member/join")
+    public Member join(Member member) {
+        return memberService.save(member);
     }
 
-    @PostMapping("/find")
+    @PostMapping("/member/find")
     public Optional<Member> find(String id) {
-        System.out.println("id = " + id);
         return memberService.findById(id);
     }
 

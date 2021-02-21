@@ -13,8 +13,9 @@ public class MemoryMemberRepository implements MemberRepository {
     private static final Map<String, Member> store = new ConcurrentHashMap<>();
 
     @Override
-    public void save(Member member) {
+    public Member save(Member member) {
         store.put(member.getId(), member);
+        return member;
     }
 
     @Override

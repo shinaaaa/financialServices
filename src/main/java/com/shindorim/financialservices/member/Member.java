@@ -1,26 +1,27 @@
 package com.shindorim.financialservices.member;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Member {
-    private Long memberNum; // 고객 번호
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long member_num; // 고객 번호
     private String id;  // 고객 아이디
     private String name;    // 고객 이름
-    private String phoneNum;    // 고객 전화번호
+    private String phone_num;    // 고객 전화번호
     private String password;    // 고객 비밀번호
 
-    public Member(Long memberNum, String id, String name, String phoneNum, String password) {
-        this.memberNum = memberNum;
-        this.id = id;
-        this.name = name;
-        this.phoneNum = phoneNum;
-        this.password = password;
+    public Long getMember_num() {
+        return member_num;
     }
 
-    public Long getMemberNum() {
-        return memberNum;
-    }
-
-    public void setMemberNum(Long memberNum) {
-        this.memberNum = memberNum;
+    public void setMember_num(Long memberNum) {
+        this.member_num = memberNum;
     }
 
     public String getId() {
@@ -39,12 +40,12 @@ public class Member {
         this.name = name;
     }
 
-    public String getPhoneNum() {
-        return phoneNum;
+    public String getPhone_num() {
+        return phone_num;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setPhone_num(String phoneNum) {
+        this.phone_num = phoneNum;
     }
 
     public String getPassword() {
@@ -58,10 +59,10 @@ public class Member {
     @Override
     public String toString() {
         return "Member{" +
-                "memberNum=" + memberNum +
+                "memberNum=" + member_num +
                 ", id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
+                ", phoneNum='" + phone_num + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

@@ -4,19 +4,31 @@ import com.shindorim.financialservices.account.AccountRepository;
 import com.shindorim.financialservices.account.AccountService;
 import com.shindorim.financialservices.account.AccountServiceImpl;
 import com.shindorim.financialservices.account.MemoryAccountRepository;
+import com.shindorim.financialservices.member.JpaMemberRepository;
 import com.shindorim.financialservices.member.MemberRepository;
 import com.shindorim.financialservices.member.MemberService;
 import com.shindorim.financialservices.member.MemberServiceImpl;
-import com.shindorim.financialservices.member.MemoryMemberRepository;
 import com.shindorim.financialservices.task.MemoryTaskRepository;
 import com.shindorim.financialservices.task.TaskRepository;
 import com.shindorim.financialservices.task.TaskService;
 import com.shindorim.financialservices.task.TaskServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 @Configuration
 public class AppConfig {
+
+    private final EntityManager entityManager;
+
+    @Autowired
+    public AppConfig(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
     @Bean
     public MemberService memberService() {
         System.out.println("call AppConfig.memberService");
@@ -26,7 +38,7 @@ public class AppConfig {
     @Bean
     public MemberRepository memberRepository() {
         System.out.println("call AppConfig.memberRepository");
-        return new MemoryMemberRepository();
+        return new JpaMemberRepository(entityManager);
     }
 
     @Bean
