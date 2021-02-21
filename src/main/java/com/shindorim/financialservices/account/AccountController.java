@@ -22,8 +22,8 @@ public class AccountController {
     }
 
     @PostMapping("/account/rest")
-    public Account rest(Long memberNum, String accountNum) {
-        return accountService.resetPassWord(memberNum, accountNum);
+    public String rest(Long member_num, String account_num) {
+        return accountService.resetPassWord(member_num, account_num);
     }
 
     @PostMapping("/account/findAccount")

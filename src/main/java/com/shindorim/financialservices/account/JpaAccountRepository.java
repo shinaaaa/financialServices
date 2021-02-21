@@ -1,10 +1,8 @@
 package com.shindorim.financialservices.account;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,12 +21,13 @@ public class JpaAccountRepository implements AccountRepository {
     }
 
     @Override
-    public Account resetPassWord(Long memberNum, String accountNum) {
-        TypedQuery<Account> accountTypedQuery = entityManager
-                .createQuery("update Account a set a.account_pw = 000 where a.member_num = :member_num and a.account_num = :account_num", Account.class)
-                .setParameter("member_num", memberNum)
-                .setParameter("account_num", accountNum);
-        return accountTypedQuery.getSingleResult();
+    public String resetPassWord(Long member_num, String account_num) {
+        int resultCount = entityManager
+                .createQuery("update Account a set a.account_pw = 0 where a.member_num = :member_num and a.account_num = :account_num")
+                .setParameter("member_num", member_num)
+                .setParameter("account_num", account_num)
+                .executeUpdate();
+        return (resultCount == 0 ? "fail" : "success");
     }
 
     @Override

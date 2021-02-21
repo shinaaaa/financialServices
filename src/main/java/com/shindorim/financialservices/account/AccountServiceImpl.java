@@ -31,12 +31,12 @@ public class AccountServiceImpl implements AccountService {
     /**
      * 비밀번호 초기화
      *
-     * @param memberNum  고객 번호
-     * @param accountNum 고객 계좌 번호
+     * @param member_num  고객 번호
+     * @param account_num 고객 계좌 번호
      */
     @Override
-    public Account resetPassWord(Long memberNum, String accountNum) {
-        return accountRepository.resetPassWord(memberNum, accountNum);
+    public String resetPassWord(Long member_num, String account_num) {
+        return accountRepository.resetPassWord(member_num, account_num);
     }
 
     /**

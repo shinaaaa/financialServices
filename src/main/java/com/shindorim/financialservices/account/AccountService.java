@@ -6,7 +6,7 @@ import java.util.Optional;
 public interface AccountService {
     Account open(Account account);
 
-    Account resetPassWord(Long memberNum, String accountNum);
+    String resetPassWord(Long member_num, String account_num);
 
     Optional<Account> findByMemberNum(Long memberNum);
 
