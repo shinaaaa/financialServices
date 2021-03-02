@@ -2,8 +2,10 @@ package com.shindorim.financialservices.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@Transactional
 public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
@@ -20,6 +22,7 @@ public class TaskServiceImpl implements TaskService {
      */
     @Override
     public void deposit(Task task) {
+        taskRepository.deposit(task);
     }
 
     /**

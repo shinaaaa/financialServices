@@ -4,6 +4,7 @@ public class Task {
     private String receiver;
     private String sender;
     private int amount;
+    private String date;
 
     public String getReceiver() {
         return receiver;
@@ -27,5 +28,13 @@ public class Task {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

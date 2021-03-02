@@ -5,7 +5,7 @@ import com.shindorim.financialservices.member.JpaMemberRepository;
 import com.shindorim.financialservices.member.MemberRepository;
 import com.shindorim.financialservices.member.MemberService;
 import com.shindorim.financialservices.member.MemberServiceImpl;
-import com.shindorim.financialservices.task.MemoryTaskRepository;
+import com.shindorim.financialservices.task.JpaTaskRepository;
 import com.shindorim.financialservices.task.TaskRepository;
 import com.shindorim.financialservices.task.TaskService;
 import com.shindorim.financialservices.task.TaskServiceImpl;
@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 @Configuration
 public class AppConfig {
@@ -59,6 +58,6 @@ public class AppConfig {
     @Bean
     public TaskRepository taskRepository() {
         System.out.println("AppConfig.taskRepository");
-        return new MemoryTaskRepository();
+        return new JpaTaskRepository(entityManager);
     }
 }

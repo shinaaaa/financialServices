@@ -19,4 +19,16 @@ public class TaskController {
         taskService.deposit(task);
         return "200";
     }
+
+    @PostMapping("/task/withdraw")
+    public String withdraw(Task task) {
+        taskService.withdraw(task);
+        return "200";
+    }
+
+    @PostMapping("/task/remit")
+    public String remit(Task task) {
+        taskService.remit(task);
+        return "200";
+    }
 }
